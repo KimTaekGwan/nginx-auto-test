@@ -1,0 +1,3 @@
+mkdir -p project/app project/nginx project/certbot/{conf,www} project/.github/workflows
+cd project 
+docker-compose up --build -d 
