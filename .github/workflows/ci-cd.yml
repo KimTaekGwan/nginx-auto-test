@@ -25,14 +25,14 @@ jobs:
       - name: Build and push blue container
         uses: docker/build-push-action@v5
         with:
-          context: .
+          context: ./app/docker
           push: true
           tags: kimtaekgwan/fastapi_blue:latest
 
       - name: Build and push green container
         uses: docker/build-push-action@v5
         with:
-          context: .
+          context: ./app/docker
           push: true
           tags: kimtaekgwan/fastapi_green:latest
 
