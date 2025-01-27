@@ -11,7 +11,11 @@ requires-python = ">=3.11, <3.13"
 dependencies = [
     "fastapi",
     "uvicorn",
-    "python-decouple"
+    "python-decouple",
+    "xml-to-dict>=0.1.6",
+    "xmltodict>=0.14.2",
+    "pandas>=2.2.3",
+    "tqdm>=4.67.1",
 ]
 
 [dependency-groups]

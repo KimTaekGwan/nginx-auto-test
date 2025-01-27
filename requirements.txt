@@ -1,3 +1,7 @@
 fastapi
 uvicorn
-python-decouple 
+python-decouple
+httpx
+xmltodict
+pandas
+tqdm 
