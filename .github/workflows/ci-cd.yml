@@ -47,7 +47,7 @@ jobs:
           port: ${{ secrets.VM_SSH_PORT }}
           script: |
             # Install Docker Compose if not exists
-            if ! command -v docker-compose &> /dev/null; then
+              if ! command -v docker-compose &> /dev/null; then
               sudo apt-get update
               sudo apt-get install -y docker-compose
             fi
@@ -64,8 +64,16 @@ jobs:
               sudo git pull
             else
               echo "Repository does not exist. Cloning the repository..."
+              # Setup project directory     
+              cd /home/ubuntu
+              sudo rm -rf project
+              sudo mkdir -p project
+              sudo chown -R $USER:$USER project
+              cd project
               sudo git clone https://${{ secrets.ACCESS_TOKEN }}@github.com/${{ github.repository }} .
             fi
+
+
 
             # Setup environment
             echo "${{ secrets.ENV_FILE }}" > .env
