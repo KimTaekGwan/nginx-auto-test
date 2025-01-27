@@ -1,8 +1,8 @@
-version: "3.8"
-
 services:
   fastapi_blue:
-    image: kimtaekgwan/fastapi_blue:latest
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
     container_name: fastapi_blue
     env_file:
       - .env
@@ -11,7 +11,9 @@ services:
     restart: always
 
   fastapi_green:
-    image: kimtaekgwan/fastapi_green:latest
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
     container_name: fastapi_green
     env_file:
       - .env
