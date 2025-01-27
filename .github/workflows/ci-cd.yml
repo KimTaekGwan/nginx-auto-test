@@ -47,7 +47,7 @@ jobs:
           port: ${{ secrets.VM_SSH_PORT }}
           script: |
             # Install Docker Compose if not exists
-              if ! command -v docker-compose &> /dev/null; then
+            if ! command -v docker-compose &> /dev/null; then
               sudo apt-get update
               sudo apt-get install -y docker-compose
             fi
@@ -67,10 +67,10 @@ jobs:
               sudo git clone https://${{ secrets.ACCESS_TOKEN }}@github.com/${{ github.repository }} .
             fi
 
-            # Copy necessary files
+            # Setup environment
             echo "${{ secrets.ENV_FILE }}" > .env
             sudo chmod 644 .env
 
-            # Pull and start containers
-            docker-compose pull
-            docker-compose up -d --no-deps fastapi_blue fastapi_green
+            # Deploy services
+            sudo docker-compose pull
+            sudo docker-compose up -d --no-deps fastapi_blue fastapi_green
